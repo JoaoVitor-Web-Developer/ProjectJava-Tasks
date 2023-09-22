@@ -1,6 +1,6 @@
 package com.example.task.controllers;
 
-import com.example.task.dtos.TaskRecordDto;
+import com.example.task.dtos.TaskDto;
 import com.example.task.models.TaskModel;
 import com.example.task.repositories.TaskRepository;
 import jakarta.validation.Valid;
@@ -19,9 +19,9 @@ public class TaskController {
     TaskRepository taskRepository;
 
     @PostMapping("/tasks")
-    public ResponseEntity<TaskModel> saveTask(@RequestBody @Valid TaskRecordDto taskRecordDto) {
+    public ResponseEntity<TaskModel> saveTask(@RequestBody @Valid TaskDto taskDto) {
         var taskModel = new TaskModel();
-        BeanUtils.copyProperties(taskRecordDto, taskModel);
+        BeanUtils.copyProperties(taskDto, taskModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(taskRepository.save(taskModel));
     }
 }
