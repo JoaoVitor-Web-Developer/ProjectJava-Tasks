@@ -15,7 +15,7 @@ public class TaskModel implements Serializable {
     @Column
     private UUID idTask;
     @Column
-    private String tasks;
+    private String task;
     @Column
     private String responsible;
     @Column
@@ -25,8 +25,8 @@ public class TaskModel implements Serializable {
         return idTask;
     }
 
-    public String getTasks() {
-        return tasks;
+    public String getTask() {
+        return task;
     }
 
     public String getResponsible() {
@@ -42,8 +42,8 @@ public class TaskModel implements Serializable {
         this.idTask = idTask;
     }
 
-    public void setTasks(String tasks) {
-        this.tasks = tasks;
+    public void setTask(String task) {
+        this.task = task;
     }
 
     public void setResponsible(String responsible) {
